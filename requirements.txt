@@ -1,0 +1,6 @@
+streamlit
+prince
+pandas
+numpy
+plotly
+seaborn
