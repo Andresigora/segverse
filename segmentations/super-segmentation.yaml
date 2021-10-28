@@ -12,7 +12,7 @@ owners:
 variables: 
   - Completed Orders over last 91 days
   - Paid Amount over last 91 days
-description: """
+description: "
 The main goal of the Super Segmentation is to identify more precisely who are our best customers at iFood. It is a simple frequency and monetary value matrix.
 
 The proposed segmentation utilizes total completed orders by the customer and paid amount by the customer over the last 91 days to generate 5 distinct groups:
@@ -34,5 +34,5 @@ Below there's a table helping with classification criteria for each segment:
 | Gold       | 35+ completed orders and R$875+ in paid amount over last 91 days         |
 | Platinum   | 50+ completed orders and R$1250+ in paid amount over last 91 days        |
 +---------------------------------------------------------------------------------------+
-"""
+"
 
