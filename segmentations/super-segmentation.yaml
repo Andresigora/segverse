@@ -1,0 +1,38 @@
+id: super-segmentation
+display-name: Super-Segmentation
+entity: account
+level: core
+dataset:
+  zone: curated
+  namespace: consumer
+  dataset: super_segmentation
+segmentation_column: super_segmentation
+owners:
+  - andre.sigora@ifood.com.br
+variables: 
+  - Completed Orders over last 91 days
+  - Paid Amount over last 91 days
+description: """
+The main goal of the Super Segmentation is to identify more precisely who are our best customers at iFood. It is a simple frequency and monetary value matrix.
+
+The proposed segmentation utilizes total completed orders by the customer and paid amount by the customer over the last 91 days to generate 5 distinct groups:
+**Explorers**, **Bronze**, **Silver**, **Gold** and **Platinum**. The last 4 constitute a larger group we call **Super-Clients**, hence the segmentation name.
+With this segmentation we can work on 2 main fronts:
+
+* User retention as Super-Client;
+
+* Promoting users between the different levels.
+
+Below there's a table helping with classification criteria for each segment:
+
++---------------------------------------------------------------------------------------+
+| Segment    |                Classification criteria                                   |
+-----------------------------------------------------------------------------------------
+| Explorer   | Less than 12 completed orders or R$300 in paid amount over last 91 days  |
+| Bronze     | 12+ completed orders and R$300+ in paid amount over last 91 days         |
+| Silver     | 25+ completed orders and R$625+ in paid amount over last 91 days         |
+| Gold       | 35+ completed orders and R$875+ in paid amount over last 91 days         |
+| Platinum   | 50+ completed orders and R$1250+ in paid amount over last 91 days        |
++---------------------------------------------------------------------------------------+
+"""
+
