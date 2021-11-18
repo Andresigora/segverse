@@ -7,6 +7,8 @@ from PIL import  Image
 from multipage import MultiPage
 from pages import home, explore, compare # import your pages here
 
+st.set_page_config(layout="wide")
+
 # Create an instance of the app 
 app = MultiPage()
 
