@@ -15,8 +15,11 @@ app = MultiPage()
 # Title of the main page
 display = Image.open('src/Logo.png')
 display = np.array(display)
-st.image(display, width = 100)
-st.title("Metaverse")
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    st.image(display, width = 100)
+with col2:
+    st.title("Betaverse")
 # col1, col2 = st.columns(2)
 # col1.image(display, width = 100)
 # col2.title("Metaverse")
