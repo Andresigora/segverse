@@ -17,7 +17,7 @@ This is a simple segmentation of the customer's base regarding their behaviour o
 "
 segments_description: 
   Non consumer:  Never bought this product
-  Low consumer: Low consumption of this product. 1st quartile (0-25th percentile)
-  Frequent consumer: Moderate consumers of this product. 2nd and 3rd quartile (25th-75th percentile).
-  Biggest consumer: Top consumers of this product (75th-100th percentile).
+  Sweets - Low consumer: Low consumption of this product. 1st quartile (0-25th percentile)
+  Sweets - Frequent consumer: Moderate consumers of this product. 2nd and 3rd quartile (25th-75th percentile).
+  Sweets - Biggest consumer: Top consumers of this product (75th-100th percentile).
 

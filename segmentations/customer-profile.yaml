@@ -7,7 +7,7 @@ dataset:
   namespace: account
   dataset: customer_profile
 airflow_task: etl-curated-account-customer-profile
-segmentation_column: customer_profile
+segmentation_column: customer-profile
 owners:
   - andre.sigora
 variables: 
