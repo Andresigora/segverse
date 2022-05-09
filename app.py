@@ -22,7 +22,6 @@ with col1:
     # st.title("Segverse")
 # col1, col2 = st.columns(2)
 # col1.image(display, width = 100)
-# col2.title("Metaverse")
 
 # Add all your application here
 app.add_page("Home", home.write)
