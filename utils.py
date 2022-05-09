@@ -1,4 +1,5 @@
 import os
+import re
 
 import pandas as pd
 import yaml
@@ -24,7 +25,7 @@ def _load_yaml_file(file_path):
 
 def list_files(folder):
     filenames = next(os.walk(folder), (None, None, []))[2]
-    return [f.strip('.yaml') for f in filenames]
+    return [re.sub(r'.yaml', '', f) for f in filenames]
 
 
 def load_segmentation_data(id, entity_col, segmentation_column):
