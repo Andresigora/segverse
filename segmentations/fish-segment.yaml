@@ -1,0 +1,22 @@
+id: fish-segment
+display-name: Fish Segment
+entity: account
+level: core
+dataset:
+  zone: curated
+  namespace: account
+  dataset: fish_segment
+airflow_task: etl-curated-account-fish-segment
+segmentation_column: fish-segment
+owners:
+  - andre.sigora
+variables: 
+  - Fish Purchases
+description: "
+This is a simple segmentation of the customer's base regarding their behaviour on Fish products and how much they bought. It is divided by quartiles. 2nd and 3rd quartiles are grouped together
+"
+segments_description: 
+  Non consumer:  Never bought this product
+  Fish - Low consumer: Low consumption of this product. 1st quartile (0-25th percentile)
+  Fish - Frequent consumer: Moderate consumers of this product. 2nd and 3rd quartile (25th-75th percentile).
+  Fish - Biggest consumer: Top consumers of this product (75th-100th percentile).

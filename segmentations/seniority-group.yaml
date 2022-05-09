@@ -1,0 +1,22 @@
+id: seniority-group
+display-name: Seniority Group (Customer Journey)
+entity: account
+level: core
+dataset:
+  zone: curated
+  namespace: account
+  dataset: seniority_group
+airflow_task: etl-curated-account-seniority-group
+segmentation_column: seniority-group
+owners:
+  - andre.sigora
+variables: 
+  - Days as a customer
+description: "
+This is a simple segmentation of the customer's base regarding their age **as a customer**. It is divided by quartiles.
+"
+segments_description: 
+  New customers:  Recently started as a customer (1st quartile).
+  Discovering customers: They are still activating as customers (2nd quartile).
+  Experienced customers: Experienced users (3rd quartile). 
+  Old customers: Have been customers the longest (4th quartile).

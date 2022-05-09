@@ -1,0 +1,23 @@
+id: fruits-segment
+display-name: Fruits Segment
+entity: account
+level: core
+dataset:
+  zone: curated
+  namespace: account
+  dataset: fruits_segment
+airflow_task: etl-curated-account-fruits-segment
+segmentation_column: fruits-segment
+owners:
+  - andre.sigora
+variables: 
+  - Fruits Purchases
+description: "
+This is a simple segmentation of the customer's base regarding their behaviour on Fruits products and how much they bought. It is divided by quartiles. 2nd and 3rd quartiles are grouped together
+"
+segments_description: 
+  Non consumer:  Never bought this product
+  Fruits - Low consumer: Low consumption of this product. 1st quartile (0-25th percentile)
+  Fruits - Frequent consumer: Moderate consumers of this product. 2nd and 3rd quartile (25th-75th percentile).
+  Fruits - Biggest consumer: Top consumers of this product (75th-100th percentile).
+

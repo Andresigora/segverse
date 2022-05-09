@@ -21,7 +21,7 @@ def write():
     with col1:
         segmentation_a = st.selectbox("Segmentation A:", segmentation_list)
     with col2: 
-        segmentation_b = st.selectbox("Segmentation B:", segmentation_list[:-1])
+        segmentation_b = st.selectbox("Segmentation B:", segmentation_list[::-1])
     include_nulls = st.checkbox("Include null values", value=True)
     calculate = st.button("Compare!")
     if calculate:

@@ -1,0 +1,31 @@
+id: customer-profile
+display-name: Customer Profile Clusters
+entity: account
+level: core
+dataset:
+  zone: curated
+  namespace: account
+  dataset: customer_profile
+airflow_task: etl-curated-account-customer-profile
+segmentation_column: customer_profile
+owners:
+  - andre.sigora
+variables: 
+  - Income
+  - Spending
+  - Seniority
+description: "
+The main goal of the Customer Profile Segmentation is to identify more precisely who the best customers are. It is a Gaussian Mixture Model clustering segmentation.
+
+The proposed segmentation utilizes customer's data for income, spendings on products and customer's age within the website, here called seniority.
+
+* User retention as Stars;
+
+* Promoting users between the different levels.
+"
+segments_description: 
+  Stars:  Old customers with high income and high spending nature
+  Need Attention: New customers with below-average income and low spending nature
+  High Potential: New customers with high income and high spending nature.
+  Leaky Bucket: Old customers with below-average income and a low spending nature.
+
