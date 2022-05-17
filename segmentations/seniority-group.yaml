@@ -7,7 +7,7 @@ dataset:
   namespace: account
   dataset: seniority_group
 airflow_task: etl-curated-account-seniority-group
-segmentation_column: seniority-group
+segmentation_column: seniority_group
 owners:
   - andre.sigora
 variables: 

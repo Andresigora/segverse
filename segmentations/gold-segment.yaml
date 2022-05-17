@@ -7,7 +7,7 @@ dataset:
   namespace: account
   dataset: gold_segment
 airflow_task: etl-curated-account-gold-segment
-segmentation_column: gold-segment
+segmentation_column: gold_segment
 owners:
   - andre.sigora
 variables: 

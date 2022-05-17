@@ -7,7 +7,7 @@ dataset:
   namespace: account
   dataset: meat_segment
 airflow_task: etl-curated-account-meat-segment
-segmentation_column: meat-segment
+segmentation_column: meat_segment
 owners:
   - andre.sigora
 variables: 

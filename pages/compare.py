@@ -43,6 +43,7 @@ def write():
                                                         entity_col=ENTITY_MAP[entity],
                                                         segmentation_column=segmentation_b_column
             )
+            segmentation_a_data.to_csv("teste.csv")
             # Include or not uncategorized entities in the comparison
             if include_nulls:
                 join_how = "left"

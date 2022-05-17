@@ -6,3 +6,4 @@ plotly
 seaborn
 statsmodels
 pyyaml
+pandas_gbq

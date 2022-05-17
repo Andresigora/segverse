@@ -4,11 +4,13 @@ import re
 import pandas as pd
 import yaml
 
+from connectors import CREDENTIALS, SEGMENTATION_SCHEMA, BigQueryConnector
+
 ENTITY_MAP = {
     "account": "account_id",
     "merchant": "merchant_id",
     "driver": "driver_id",
-    "item": "catalog_item_id"
+    "item": "item_id"
 }
 
 
@@ -39,6 +41,9 @@ def list_segmentations(entity, folder='segmentations'):
 
 
 def load_segmentation_data(id, entity_col, segmentation_column):
-    segmentation_path = 'data/{}.csv'.format(id)
-    df = pd.read_csv(segmentation_path)
-    return df[[entity_col, segmentation_column]]
+    table_name = id.replace("-", "_")
+    conn = BigQueryConnector(credentials=CREDENTIALS, segmentation_schema=SEGMENTATION_SCHEMA)
+    return conn.get_segmentation(table_name, entity_col, segmentation_column)
+    # segmentation_path = 'data/{}.csv'.format(id)
+    # df = pd.read_csv(segmentation_path)
+    # return df[[entity_col, segmentation_column]]

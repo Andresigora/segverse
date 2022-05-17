@@ -7,7 +7,7 @@ dataset:
   namespace: account
   dataset: fruits_segment
 airflow_task: etl-curated-account-fruits-segment
-segmentation_column: fruits-segment
+segmentation_column: fruits_segment
 owners:
   - andre.sigora
 variables: 

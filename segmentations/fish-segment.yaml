@@ -7,7 +7,7 @@ dataset:
   namespace: account
   dataset: fish_segment
 airflow_task: etl-curated-account-fish-segment
-segmentation_column: fish-segment
+segmentation_column: fish_segment
 owners:
   - andre.sigora
 variables: 
