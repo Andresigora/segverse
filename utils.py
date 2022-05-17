@@ -44,6 +44,3 @@ def load_segmentation_data(id, entity_col, segmentation_column):
     table_name = id.replace("-", "_")
     conn = BigQueryConnector(credentials=CREDENTIALS, segmentation_schema=SEGMENTATION_SCHEMA)
     return conn.get_segmentation(table_name, entity_col, segmentation_column)
-    # segmentation_path = 'data/{}.csv'.format(id)
-    # df = pd.read_csv(segmentation_path)
-    # return df[[entity_col, segmentation_column]]
