@@ -3,10 +3,8 @@ display-name: Sweets Segment
 entity: account
 level: core
 dataset:
-  zone: curated
-  namespace: account
-  dataset: sweets_segment
-airflow_task: etl-curated-account-sweets-segment
+  schema: segverse
+  table: sweets_segment
 segmentation_column: sweets_segment
 owners:
   - andre.sigora

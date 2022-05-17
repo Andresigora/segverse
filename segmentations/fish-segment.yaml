@@ -3,10 +3,8 @@ display-name: Fish Segment
 entity: account
 level: core
 dataset:
-  zone: curated
-  namespace: account
-  dataset: fish_segment
-airflow_task: etl-curated-account-fish-segment
+  schema: segverse
+  table: fish_segment
 segmentation_column: fish_segment
 owners:
   - andre.sigora

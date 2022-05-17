@@ -3,10 +3,8 @@ display-name: Meat Segment
 entity: account
 level: core
 dataset:
-  zone: curated
-  namespace: account
-  dataset: meat_segment
-airflow_task: etl-curated-account-meat-segment
+  schema: segverse
+  table: meat_segment
 segmentation_column: meat_segment
 owners:
   - andre.sigora

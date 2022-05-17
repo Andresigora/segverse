@@ -29,19 +29,10 @@ def write():
         location = st.expander("Where to Find")
         with location:
             st.markdown("""---""")
-            st.image('src/databricks.png', width = 150)
-            zone = segmentation_info["dataset"]["zone"]
-            namespace = segmentation_info["dataset"]["namespace"]
-            dataset = segmentation_info["dataset"]["dataset"]
-            st.markdown("**Zone**: " + zone)
-            st.markdown("**Namespace**: " + namespace)
-            st.markdown("**Dataset**: " + dataset)
-            st.markdown("**[Data Portal](https://dataportal.ifoodcorp.com.br/table_detail/master/databricks/{}_{}/{})**".format(namespace, zone, dataset))
-            
+            st.image('src/bigquery.png', width = 150)
+            schema = segmentation_info["dataset"]["schema"]
+            table = segmentation_info["dataset"]["table"]
+            st.markdown("**Schema**: " + schema)
+            st.markdown("**Table**: " + table)
             st.markdown("""---""")
-            st.image('src/airflow.png', width = 150)
-            st.markdown("**Task Id**: " + segmentation_info["airflow_task"])
-            
-            st.markdown("""---""")
-            st.markdown("**Feature Store**")
 

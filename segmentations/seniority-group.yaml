@@ -3,10 +3,8 @@ display-name: Seniority Group (Customer Journey)
 entity: account
 level: core
 dataset:
-  zone: curated
-  namespace: account
-  dataset: seniority_group
-airflow_task: etl-curated-account-seniority-group
+  schema: segverse
+  table: seniority_group
 segmentation_column: seniority_group
 owners:
   - andre.sigora

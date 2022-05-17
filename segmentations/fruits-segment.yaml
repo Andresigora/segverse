@@ -3,10 +3,8 @@ display-name: Fruits Segment
 entity: account
 level: core
 dataset:
-  zone: curated
-  namespace: account
-  dataset: fruits_segment
-airflow_task: etl-curated-account-fruits-segment
+  schema: segverse
+  table: fruits_segment
 segmentation_column: fruits_segment
 owners:
   - andre.sigora

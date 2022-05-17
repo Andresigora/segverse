@@ -3,10 +3,8 @@ display-name: Gold Segment
 entity: account
 level: core
 dataset:
-  zone: curated
-  namespace: account
-  dataset: gold_segment
-airflow_task: etl-curated-account-gold-segment
+  schema: segverse
+  table: gold_segment
 segmentation_column: gold_segment
 owners:
   - andre.sigora

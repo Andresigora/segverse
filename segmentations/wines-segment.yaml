@@ -3,10 +3,8 @@ display-name: Wines Segment
 entity: account
 level: core
 dataset:
-  zone: curated
-  namespace: account
-  dataset: wines_segment
-airflow_task: etl-curated-account-wines-segment
+  schema: segverse
+  table: wines_segment
 segmentation_column: wines_segment
 owners:
   - andre.sigora

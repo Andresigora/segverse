@@ -3,10 +3,8 @@ display-name: Customer Profile Clusters
 entity: account
 level: core
 dataset:
-  zone: curated
-  namespace: account
-  dataset: customer_profile
-airflow_task: etl-curated-account-customer-profile
+  schema: segverse
+  table: customer_profile
 segmentation_column: customer_profile
 owners:
   - andre.sigora
