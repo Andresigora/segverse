@@ -10,13 +10,13 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 
-from utils import list_files, load_segmentation, load_segmentation_data, ENTITY_MAP
+from utils import list_segmentations, load_segmentation, load_segmentation_data, ENTITY_MAP
 
 
 def write():
-    segmentation_list = list_files('segmentations')
     st.write("Select the Segmentations you would like to compare")
     entity = st.selectbox("Entity:", ENTITY_MAP.keys())
+    segmentation_list = list_segmentations(entity)
     col1, col2 = st.columns(2)
     with col1:
         segmentation_a = st.selectbox("Segmentation A:", segmentation_list)
