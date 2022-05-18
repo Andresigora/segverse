@@ -1,7 +1,10 @@
 import pandas as pd
 import streamlit as st
 
+from chef import Recipe
 from utils import list_files, load_segmentation
+
+recipe = Recipe()
 
 def write():
     segmentation_list = list_files('segmentations')
@@ -29,7 +32,7 @@ def write():
         location = st.expander("Where to Find")
         with location:
             st.markdown("""---""")
-            st.image('src/bigquery.png', width = 150)
+            st.image(recipe.source["source_logo"], width = 150)
             schema = segmentation_info["dataset"]["schema"]
             table = segmentation_info["dataset"]["table"]
             st.markdown("**Schema**: " + schema)

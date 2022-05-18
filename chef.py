@@ -9,6 +9,7 @@ class Recipe():
         self.recipe = recipe_dict
         self.title = recipe_dict["title"]
         self.logo = recipe_dict["logo"]
+        self.favicon = recipe_dict["favicon"]
         self.entities = recipe_dict["entities"]
         self.source = recipe_dict["source"]
 

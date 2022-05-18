@@ -5,6 +5,7 @@
 # Project Title and Logo
 title: Segverse
 logo: src/Logo.jpg
+favicon: src/favicon.jpg
 
 # Entities and their correspondent ID
 entities:
@@ -18,4 +19,5 @@ source:
   type: bigquery
   segmentation_schema: segverse
   credentials: credentials/bigquery.json
+  source_logo: src/bigquery.png
 

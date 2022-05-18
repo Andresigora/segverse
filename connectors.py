@@ -1,8 +1,12 @@
 import pandas_gbq
 from google.oauth2 import service_account
 
-CREDENTIALS = service_account.Credentials.from_service_account_file(filename='credentials/bigquery.json')
-SEGMENTATION_SCHEMA = "segverse"
+from chef import Recipe
+
+recipe = Recipe()
+
+CREDENTIALS = service_account.Credentials.from_service_account_file(filename=recipe.source["credentials"])
+SEGMENTATION_SCHEMA = recipe.source["segmentation_schema"]
 
 class BigQueryConnector():
     def __init__(self, credentials, segmentation_schema):

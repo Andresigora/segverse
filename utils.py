@@ -5,13 +5,9 @@ import pandas as pd
 import yaml
 
 from connectors import CREDENTIALS, SEGMENTATION_SCHEMA, BigQueryConnector
+from chef import Recipe
 
-ENTITY_MAP = {
-    "account": "account_id",
-    "merchant": "merchant_id",
-    "driver": "driver_id",
-    "item": "item_id"
-}
+ENTITY_MAP = Recipe().entities
 
 
 def load_segmentation(id):
