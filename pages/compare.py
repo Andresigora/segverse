@@ -129,64 +129,99 @@ def write():
                 st.info("p-value is equal to {}".format(p))
                 if p < 0.05:
                     st.success("There is association between the two segmentations.")
+                    # Correspondence Analysis
+                    st.markdown("**Correspondence Analysis**")
+                    st.markdown("""
+                        Correspondence analysis (CA) helps measure similarities between segmentations and the strength of segmentations in terms of their relationships within different classes or segments. 
+                        Understanding the relative relationships allows decision-makers to assemble layers of knowledge on a particular group of customers, for instance, and decide on next steps to take.
+                        \n\n
+                        When attempting to look at relative relationships between different segmentations, segment size can have a misleading effect; correspondence analysis removes this effect. 
+                        It also gives an intuitive quick view of segments relationships (based on proximity and distance from origin) that isn't provided by many other graphs.
+                        \n
+                        The CA shown here is comprised of a table of adjusted standardized residuals that represents the strength of association between the segmentations and
+                        a perceptual map that identifies these associations and plots them a two-dimensional map (with a bonus three-dimensional plot to play around).
+                        """)
+                    # Standardized Residuals
+                    st.markdown("**Standardized Residuals**")
+                    st.markdown("""
+                        The standardized residuals represent how strongly associated the rows and columns (segments of each segmentation) are. 
+                        Great positive numbers represent a strong positive association, while great negative numbers represent a strong negative association.
+                        """)
+                    contingency_table3 = sm.stats.Table(contingency_table2)
+                    std_residuals = contingency_table3.standardized_resids
+                    std_residuals_heatmap = px.imshow(std_residuals, text_auto=True, color_continuous_scale="rdylgn", aspect="auto")
+                    std_residuals_heatmap.update_xaxes(side="top", tickfont_size=16)
+                    std_residuals_heatmap.update_yaxes(tickfont_size=16)
+                    std_residuals_heatmap.update_layout(width=800, height=650)
+                    st.plotly_chart(std_residuals_heatmap)
+
+                    # Perceptual Map
+                    st.markdown("**Perceptual Map**: ")
+                    st.markdown("""
+                        The chart below is simpler to digest than the whole table. As is always the case when we fit a model to data, there is no free lunch.
+                        Correspondence analysis just summarizes the data. Like many summaries, it can be superficial and at times misleading. 
+                        For this reason, you should always check that any key conclusions you draw from a correspondence analysis are also clearly visible in the standardized residuals heatmap.
+                        \n\n
+                        Here's some more detailed information on [how to interpret perceptual maps from Correspondence Analysis](https://www.displayr.com/interpret-correspondence-analysis-plots-probably-isnt-way-think/).
+                        """)
+                    X = contingency_table2
+
+                    ca = prince.CA(
+                        n_components=3,
+                        n_iter=3,
+                        copy=True,
+                        check_input=True,
+                        engine='auto',
+                        random_state=42
+                    )
+                    ca = ca.fit(X)
+                    ax = ca.plot_coordinates(
+                        X=X,
+                        ax=None,
+                        figsize=(10, 6),
+                        x_component=0,
+                        y_component=1,
+                        show_row_labels=True,
+                        show_col_labels=True
+                    )
+                    fig_pm = ax.get_figure()
+                    st.pyplot(fig_pm)
+
+                    # 3D Plot 
+                    # plot3d = st.button("Create 3D Plot")
+                    # if plot3d:
+                    coords_col = ca.column_coordinates(X)
+                    coords_row = ca.row_coordinates(X)
+                    fig3d = go.Figure()
+                    fig3d.add_trace(go.Scatter3d(x=coords_col[0],
+                                            y=coords_col[1],
+                                            z=coords_col[2],
+                                            text=coords_col.index,
+                                            mode='markers+text',
+                                            name=segmentation_a_display_name
+                                            )
+                                
+                                )
+                    fig3d.add_trace(go.Scatter3d(x=coords_row[0],
+                                            y=coords_row[1],
+                                            z=coords_row[2],
+                                            text=coords_row.index,
+                                            mode='markers+text',
+                                            name=segmentation_b_display_name
+                                            )
+                                )
+                    fig3d.update_layout(title="3D Perceptual Map",
+                                        autosize=True, 
+                                        legend_title="Segmentation Legend",
+                                        scene=dict(
+                                            xaxis_title="Component 0",
+                                            yaxis_title="Component 1",
+                                            zaxis_title="Component 2"
+                                            )
+                                        )
+                    st.plotly_chart(fig3d)
+
                 else:
-                    st.error("There is no association between the two segmentations. They are independent of each other.")
+                    st.error("There is no association between the two segmentations. They are independent of each other. Because there is no significant association, a correspondence analysis will not be performed.")
 
-                # Perceptual Map
-                st.markdown("**Perceptual Map**: ")
-                X = contingency_table2
-
-                ca = prince.CA(
-                    n_components=3,
-                    n_iter=3,
-                    copy=True,
-                    check_input=True,
-                    engine='auto',
-                    random_state=42
-                )
-                ca = ca.fit(X)
-                ax = ca.plot_coordinates(
-                    X=X,
-                    ax=None,
-                    figsize=(10, 6),
-                    x_component=0,
-                    y_component=1,
-                    show_row_labels=True,
-                    show_col_labels=True
-                )
-                fig_pm = ax.get_figure()
-                st.pyplot(fig_pm)
-
-                # 3D Plot 
-                # plot3d = st.button("Create 3D Plot")
-                # if plot3d:
-                coords_col = ca.column_coordinates(X)
-                coords_row = ca.row_coordinates(X)
-                fig3d = go.Figure()
-                fig3d.add_trace(go.Scatter3d(x=coords_col[0],
-                                        y=coords_col[1],
-                                        z=coords_col[2],
-                                        text=coords_col.index,
-                                        mode='markers+text',
-                                        name=segmentation_a_display_name
-                                        )
-                            
-                            )
-                fig3d.add_trace(go.Scatter3d(x=coords_row[0],
-                                        y=coords_row[1],
-                                        z=coords_row[2],
-                                        text=coords_row.index,
-                                        mode='markers+text',
-                                        name=segmentation_b_display_name
-                                        )
-                            )
-                fig3d.update_layout(title="3D Perceptual Map",
-                                    autosize=True, 
-                                    legend_title="Segmentation Legend",
-                                    scene=dict(
-                                        xaxis_title="Component 0",
-                                        yaxis_title="Component 1",
-                                        zaxis_title="Component 2"
-                                        )
-                                    )
-                st.plotly_chart(fig3d)
+                
