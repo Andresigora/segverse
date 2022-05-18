@@ -1,0 +1,21 @@
+################################################
+### RECIPE INSTRUCTIONS FOR SEGVERSE PROJECT ###
+################################################
+
+# Project Title and Logo
+title: Segverse
+logo: src/Logo.jpg
+
+# Entities and their correspondent ID
+entities:
+  account: account_id
+  merchant: merchant_id
+  driver: driver_id
+  item: item_id
+
+# Source
+source:
+  type: bigquery
+  segmentation_schema: segverse
+  credentials: credentials/bigquery.json
+
