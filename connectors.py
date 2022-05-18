@@ -21,9 +21,9 @@ class BigQueryConnector():
         sql = """select CAST({entity_id} as STRING) as {entity_id},
                         {segmentation_col} as {segmentation_col}
                         from `{schema}.{table}`""".format(entity_id=entity_id, 
-                                                                                        segmentation_col=segmentation_col,
-                                                                                        schema=self.segmentation_schema,
-                                                                                        table=table_name   
-                                                                                    )
+                                                         segmentation_col=segmentation_col,
+                                                         schema=self.segmentation_schema,
+                                                         table=table_name   
+                                                        )
         seg = self.query(sql)
         return seg
