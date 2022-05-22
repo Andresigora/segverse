@@ -14,7 +14,7 @@ def write():
 
         * Which variables are taken into consideration and how was it segmented?
 
-        * Where to find them on the Data Lake?
+        * Where to find them on Google BigQuery?
 
         * Who is the owner?
 

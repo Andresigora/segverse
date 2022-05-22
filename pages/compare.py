@@ -9,6 +9,7 @@ from scipy.stats import chi2_contingency, chi2
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
+from pySankey.sankey import sankey
 
 from utils import list_segmentations, load_segmentation, load_segmentation_data, ENTITY_MAP
 
@@ -74,7 +75,7 @@ def write():
             
                 # Charts
                 js_grouped = joint_segmentations.groupby([segmentation_a_column, segmentation_b_column]).count().reset_index()
-                js_grouped = js_grouped.rename(columns={"account_id": entity + 's'})
+                js_grouped = js_grouped.rename(columns={ENTITY_MAP[entity]: entity + 's'})
                 col1, col2 = st.columns(2)
                 with col1:
                     st.markdown('<div style="text-align: center"><b>Distribution of {}s between {} and {} segmentations</b></div>'.format(entity,
@@ -104,12 +105,15 @@ def write():
                             barmode='stack'
                         )
                     st.plotly_chart(perc_bar, use_container_width=True)
+                    
+                # Sankey Diagram
                 st.markdown('<div style="text-align: center"><b>Sankey Diagram</b></div>', unsafe_allow_html=True)
-                fig = px.parallel_categories(joint_segmentations,
-                                            labels={segmentation_a_column: segmentation_a_display_name,
-                                                    segmentation_b_column: segmentation_b_display_name
-                                            })
-                st.plotly_chart(fig, use_container_width=True)
+                ax_sankey = sankey(left=joint_segmentations[segmentation_a_column], 
+                                   right=joint_segmentations[segmentation_b_column],
+                                   fontsize=12
+                )
+                fig_sankey = plt.gcf()
+                st.pyplot(fig_sankey)
             
             # Advanced Statistics
             adv_statistics = st.expander("Advanced Statistics", expanded=False)
