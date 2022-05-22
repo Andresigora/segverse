@@ -117,7 +117,7 @@ def write():
                                            fontsize=12
                         )
                         fig_sankey = plt.gcf()
-                    st.pyplot(fig_sankey)
+                        st.pyplot(fig_sankey)
                     ax_sankey = sankey(left=joint_segmentations[segmentation_a_column], 
                                     right=joint_segmentations[segmentation_b_column],
                                     fontsize=12
