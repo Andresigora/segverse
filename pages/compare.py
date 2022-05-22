@@ -105,15 +105,25 @@ def write():
                             barmode='stack'
                         )
                     st.plotly_chart(perc_bar, use_container_width=True)
-                    
+
                 # Sankey Diagram
                 st.markdown('<div style="text-align: center"><b>Sankey Diagram</b></div>', unsafe_allow_html=True)
-                ax_sankey = sankey(left=joint_segmentations[segmentation_a_column], 
-                                   right=joint_segmentations[segmentation_b_column],
-                                   fontsize=12
-                )
-                fig_sankey = plt.gcf()
-                st.pyplot(fig_sankey)
+                col1, col2, col3 = st.columns(3)
+                with col2:
+                    invert_order = st.button("↔")
+                    if invert_order:
+                        ax_sankey = sankey(left=joint_segmentations[segmentation_b_column], 
+                                           right=joint_segmentations[segmentation_a_column],
+                                           fontsize=12
+                        )
+                        fig_sankey = plt.gcf()
+                    st.pyplot(fig_sankey)
+                    ax_sankey = sankey(left=joint_segmentations[segmentation_a_column], 
+                                    right=joint_segmentations[segmentation_b_column],
+                                    fontsize=12
+                    )
+                    fig_sankey = plt.gcf()
+                    st.pyplot(fig_sankey)
             
             # Advanced Statistics
             adv_statistics = st.expander("Advanced Statistics", expanded=False)
