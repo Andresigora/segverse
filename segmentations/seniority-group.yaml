@@ -14,7 +14,9 @@ description: "
 This is a simple segmentation of the customer's base regarding their age **as a customer**. It is divided by quartiles.
 "
 segments_description: 
-  New customers:  Recently started as a customer (1st quartile).
-  Discovering customers: They are still activating as customers (2nd quartile).
-  Experienced customers: Experienced users (3rd quartile). 
+  New customers:  Just started as a customer (1st quartile).
+  Discovering customers: They are still in process of activating as customers (2nd quartile).
+  Experienced customers: Relatively experienced users (3rd quartile). 
   Old customers: Have been customers the longest (4th quartile).
+
+  

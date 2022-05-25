@@ -13,17 +13,16 @@ variables:
   - Spending
   - Seniority
 description: "
-The main goal of the Customer Profile Segmentation is to identify more precisely who the best customers are. It is a Gaussian Mixture Model clustering segmentation.
+The main goal of the Customer Profile Segmentation is to identify more precisely who the best customers are. It is a k-means clustering segmentation.
 
 The proposed segmentation utilizes customer's data for income, spendings on products and customer's age within the website, here called seniority.
 
 * User retention as Stars;
 
-* Promoting users between the different levels.
+*   Promoting users between the different levels.
 "
 segments_description: 
-  Stars:  Old customers with high income and high spending nature
-  Need Attention: New customers with below-average income and low spending nature
-  High Potential: New customers with high income and high spending nature.
-  Leaky Bucket: Old customers with below-average income and a low spending nature.
-
+  Stars:  These are the best customers. They have been customers the longest with a high income and high spending behaviour.
+  Need Attention: New customers with basic income below the average and low spending behaviour.
+  High Potential: New customers with a high basic income and high spending behaviour.
+  Leaky Bucket: These are customers with low value and low retention to the company. They have been customers for a long time, but with below-average income and low spending behaviour.

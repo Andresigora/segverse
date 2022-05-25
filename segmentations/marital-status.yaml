@@ -1,0 +1,18 @@
+id: marital-status
+display-name: Marital Status
+entity: account
+level: core
+dataset:
+  schema: segverse
+  table: marital_status
+segmentation_column: marital_status
+owners:
+  - andre.sigora
+variables: 
+  - Customer's Marital Status
+description: "
+This is a simple binary segmentation of the customer's base regarding their marital status. It is a simple aggregation of customers on specific values for which they answered about their marital status. 
+"
+segments_description: 
+  Alone:  "Aggregates all customers with marital status as: Single, Divorced, Widowed, Absurd, YOLO."
+  In couple:  "Aggregates all customers with marital status as: Married and Together."

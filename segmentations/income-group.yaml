@@ -1,0 +1,20 @@
+id: income-group
+display-name: Income Group
+entity: account
+level: core
+dataset:
+  schema: segverse
+  table: income_group
+segmentation_column: income_group
+owners:
+  - andre.sigora
+variables: 
+  - Income
+description: "
+This is a simple segmentation of the customer's base regarding their basic income. It is divided by quartiles: Low income, Low to medium income, Medium to high income, High income
+"
+segments_description: 
+  Low income:  Low income customers. (0-25th percentile of basic income distribution)
+  Low to medium income:  Low to medium income customers. (25-50th percentile of basic income distribution)
+  Medium to high income:  Medium to high customers. (50-75th percentile of basic income distribution)
+  High income:  High income customers. (75-100th percentile of basic income distribution)
